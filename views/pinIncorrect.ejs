@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .form-container{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url("../img/bg.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        padding: 0 16rem;
+    }
+    *{
+        font-family: sans-serif;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    .inner-container{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .title{
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        flex-direction: column;
+    }
+    .inner-container > div{
+        width: 50%;
+    }
+    .logo{
+        background: linear-gradient(105deg,#ffe200 20%,#ffe20000 62%);
+        margin-bottom: 10px;
+        padding: 3px 20px;
+        width: 100%;
+    }
+    .logo > img{
+        height: 52px;
+        object-fit: contain;
+        width: 75px;
+    }
+    .textArea h2{
+        font-size: 1.6rem;
+        font-weight: bolder;
+        margin-bottom: 4px;
+        margin-top: 13px;
+        color: #fff;
+    }
+    .textArea p{
+        color: #fff;
+    }
+    .inner-form > div{
+        width: 70%;
+        height: fit-content;
+        background: #fff;
+        border-radius: 10px;
+        padding: 1.6rem;
+    }
+    .inner-form > div > h1{
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        color: #FF0000;
+    }
+    .inner-form > div > p{
+        font-size: .7rem;
+    }
+    .inner-form{
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        flex-direction: column;
+    }
+    .pinInput{
+        background: #E8E8E8 0% 0% no-repeat padding-box;
+        border-radius: 20px;
+        opacity: 1;
+        width: 100%;
+        height: 30px;
+        border: none;
+        margin-top: 1.4rem;
+        outline: none;
+        padding: 0 1rem;
+    }
+    .sub-btn{
+        width: 100%;
+        display: flex;
+        justify-content: end;
+        margin-top: 1.5rem;
+    }
+    .sub-btn > button{
+        padding: .4rem 1.1rem;
+        border: none;
+        border-radius: 10px;
+        background: #ffe200;
+        color: #000;
+        font-weight: bold;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <form class="form-container" action="/backToVerify" method="POST">
+        <div class="inner-container">
+            <div class="title">
+                <div class="logo">
+                    <img src="/img/dark.png" alt="">
+                </div>
+                <div class="textArea">
+                    <h2>It's just so nippy!</h2>
+                    <p>Where cargo security and user satisfaction meet.</p>
+                </div>
+            </div>
+            <div class="inner-form">
+                <div>
+                    <h1>PIN Incorrect</h1>
+                    <p>Please check the PIN and try again, if the PIN is incorrect, please do not hand over your cargo, contact the <a style="text-decoration: none;color: #0000FF;" href="mailto:support@zipi.co.za">Zipi Support</a> team and we will be able to assist you.</p>
+                    <div class="sub-btn">
+                        <button>Try again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
