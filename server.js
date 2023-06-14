@@ -46,7 +46,7 @@ app.post("/backToVerify", (req, res) => {
     res.render('index');
 });
 
-const PORT = process.env.PORT || 5000 // 127.0.0.1;
+const PORT = process.env.PORT || 3004 // 127.0.0.1;
 
 app.listen(PORT, () => {
     console.log(`server running at port ${PORT}`)
