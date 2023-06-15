@@ -37,8 +37,11 @@ app.use("/js", express.static(path.join(__dirname + 'public/js')));
 app.use("/img", express.static(path.join(__dirname + 'public/img')));
 
 //routes
-app.get("", (req, res) => {
-    res.render('index');
+let key;
+app.get("/", (req, res) => {
+    res.render('index', {key: req.query.key});
+    console.log(req.query.key)
+// res.send('Response send to client:'+req.query.key);
 });
 app.post("/verifyPin", verifyPin);
 
@@ -46,8 +49,8 @@ app.post("/backToVerify", (req, res) => {
     res.render('index');
 });
 
-const PORT = process.env.PORT || 3004 // 127.0.0.1;
+const PORT = process.env.PORT || 5000 // 127.0.0.1;
 
 app.listen(PORT, () => {
-    console.log(`server running at port ${PORT}`)
+    console.log(`server running at port ${PORT}`);
 })

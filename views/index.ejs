@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="javascript" src="../public/js/app.js"></script>
     <title>Pin verification</title>
 </head>
 <style>
@@ -126,8 +125,9 @@
                 <div>
                     <h1>Verify PIN</h1>
                     <p>To ensure that you'll be handing over the cargo to the correct person, ask them for a PIN when they arrive and insert it below to verify them.</p>
-                    <input class="pinInput" placeholder="verification PIN" name="pin" type="text">
-                    <div class="sub-btn">
+                    <input class="pinInput" placeholder="verification PIN" value="2456" name="pin" type="text">
+                    <input type="hidden" name="uid" value="<%= key %>">
+                    <div class="sub-btn btn">
                         <button>Verify</button>
                     </div>
                 </div>

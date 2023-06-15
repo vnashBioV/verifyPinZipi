@@ -1,9 +1,6 @@
-// const pinFrom = document.getElementById("pinFrom");
-// const btn = document.getElementById("btn");
+const btn = document.querySelector(".btn");
 
-// alert("okay wena");
-
-// btn.addEventListener("click", () => {
-//     console.log("okay i see")
-// })
-alert("hello script")
+btn.addEventListener('click', () => {
+    alert("hello script");
+    console.log("hello")
+})
