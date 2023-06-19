@@ -37,16 +37,17 @@ app.use("/js", express.static(path.join(__dirname + 'public/js')));
 app.use("/img", express.static(path.join(__dirname + 'public/img')));
 
 //routes
-let key;
+let key = [];
 app.get("/", (req, res) => {
-    res.render('index', {key: req.body.uid});
-    console.log(req.body.uid)
+    res.render('index', {key: req.query.key});
+    key.push(req.query.key);
+    console.log(req.query.key)
 // res.send('Response send to client:'+req.query.key);
 });
 app.post("/verifyPin", verifyPin);
 
 app.post("/backToVerify", (req, res) => {
-    res.render('index');
+    res.render('index', {key: key[0]});
 });
 
 const PORT = process.env.PORT || 5000 // 127.0.0.1;
