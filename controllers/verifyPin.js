@@ -23,7 +23,7 @@ export const verifyPin = (req, res) => {
     const getDriver = ref(db, "drivers/" + req.body.uid);
     onValue(getDriver, (snapshot) => {
         console.log("this is the pin", snapshot.val())
-        if(snapshot.val().pu_pin){
+        if(snapshot.val().pu_pin && !on_delivery){
             const pickUpPin = snapshot.val().pu_pin
             if(pickUpPin.toString() === pinFromPickUp.toString()){
                 update(getDriver, {
