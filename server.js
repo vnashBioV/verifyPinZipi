@@ -39,8 +39,8 @@ app.use("/img", express.static(path.join(__dirname + 'public/img')));
 //routes
 let key;
 app.get("/", (req, res) => {
-    res.render('index', {key: req.query.key});
-    console.log(req.query.key)
+    res.render('index', {key: req.body.uid});
+    console.log(req.body.uid)
 // res.send('Response send to client:'+req.query.key);
 });
 app.post("/verifyPin", verifyPin);
