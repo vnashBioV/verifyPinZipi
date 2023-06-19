@@ -19,23 +19,23 @@ const db = getDatabase();
 
 export const verifyPin = (req, res) => {
     console.log("this is the driver", req.body.uid);
-    // const pinFromPickUp = (req.body.pin);
-    // const getDriver = ref(db, "drivers/" + req.query.key);
-    // onValue(getDriver, (snapshot) => {
-    //     if(snapshot.val().pu_pin){
-    //         const pickUpPin = snapshot.val().pu_pin
-    //         if(pickUpPin.toString() === pinFromPickUp.toString()){
-    //             update(getDriver, {
-    //                 pu_pin: null , 
-    //                 on_delivery: true
-    //             })
-    //             res.render('pinVerified')
-    //         }else{
-    //             res.render('pinIncorrect')
-    //         }
-    //     }else{
-    //         res.send("Oops driver does not exist!!");
-    //     }
-    // })
+    const pinFromPickUp = (req.body.pin);
+    const getDriver = ref(db, "drivers/" + req.query.key);
+    onValue(getDriver, (snapshot) => {
+        if(snapshot.val().pu_pin){
+            const pickUpPin = snapshot.val().pu_pin
+            if(pickUpPin.toString() === pinFromPickUp.toString()){
+                update(getDriver, {
+                    pu_pin: null , 
+                    on_delivery: true
+                })
+                res.render('pinVerified')
+            }else{
+                res.render('pinIncorrect')
+            }
+        }else{
+            res.send("Oops driver does not exist!!");
+        }
+    })
 };
 //285740
