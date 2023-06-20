@@ -108,6 +108,32 @@
         font-weight: bold;
         cursor: pointer;
     }
+    @media screen and (max-width:1270px){
+        .form-container{
+            padding: 0px 2rem !important;
+        } 
+        .inner-container{
+            flex-direction: column !important;
+            justify-content: center !important;
+        }
+        .inner-container > div{
+            width: 100% !important;
+        }
+        .inner-container > div:nth-child(2){
+            margin-top: 3rem;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+        }
+        .inner-form > div{
+            width: 41% !important;
+        }
+    }
+    @media screen and (max-width:766px){
+        .inner-form > div{
+            width: 100% !important;
+        }
+    }
 </style>
 <body>
     <form class="form-container" action="/verifyPin" method="POST">
