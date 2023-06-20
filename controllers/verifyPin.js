@@ -24,14 +24,16 @@ export const verifyPin = (req, res) => {
     onValue(getDriver, (snapshot) => {
         if(snapshot.exists()){
             const pickUpPin = snapshot.val().pu_pin
-            if(pickUpPin.toString() === pinFromPickUp.toString()){
-                update(getDriver, {
-                    pu_pin: null , 
-                    on_delivery: true
-                })
-                res.render('pinVerified')
-            }else{
-                res.render('pinIncorrect')
+            if(pickUpPin){
+                if(pickUpPin.toString() === pinFromPickUp.toString()){
+                    update(getDriver, {
+                        pu_pin: null , 
+                        on_delivery: true
+                    })
+                    res.render('pinVerified')
+                }else{
+                    res.render('pinIncorrect')
+                }
             }
         }else{
             res.send("Oops driver does not exist!!");
