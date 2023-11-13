@@ -23,7 +23,7 @@ app.set('view engine', 'ejs');
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({policy: "cross-origin"}))
 app.use(bodyParser.json({limit:"30mb", extended: true}));
-app.use(bodyParser.urlencoded({limit:"30mb", extended: true})) 
+app.use(bodyParser.urlencoded({limit:"30mb", extended: true}))
 
 // app.use(cors());
 app.use(morgan("common"));
@@ -39,10 +39,10 @@ app.use("/img", express.static(path.join(__dirname + 'public/img')));
 //routes
 let key = [];
 app.get("/", (req, res) => {
-    res.render('index', {key: req.query.key});
-    key.push(req.query.key);
-    console.log(req.query.key)
-// res.send('Response send to client:'+req.query.key);
+    const queryKey = req.query.key;
+    console.log(queryKey || ''); // Log an empty string if queryKey is undefined
+    key.push(queryKey);
+    res.render('index', { key: queryKey });
 });
 app.post("/verifyPin", verifyPin);
 
